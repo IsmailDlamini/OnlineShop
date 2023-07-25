@@ -1,0 +1,306 @@
+
+you need to check if the other sites have an overflow hide 
+
+this will help you move foward with the development of the site in all ways
+
+
+const PreferenceZone = () => {
+
+  return (
+    <>
+      <div className="preferenceZone">
+        <div className="gender">
+          <ul>
+            <li>
+              <input type="radio" name="radioMale" id="MaleRadioButton" />
+              Male
+            </li>
+            <li>
+              <input type="radio" name="radioFemale" id="1FemaleRadioButton" />
+              Female
+            </li>
+          </ul>
+        </div>
+        <div className="color"></div>
+        <div className="brand">
+          <ul>
+            <li>
+              <input type="radio" name="radioBrand" id="1RadioButton" />
+              Redeemed
+            </li>
+            <li>
+              <input type="radio" name="radioBrand" id="2RadioButton" />
+              888 World
+            </li>
+            <li>
+              <input type="radio" name="radioBrand" id="3RadioButton" />
+              Matrix
+            </li>
+            <li>
+              <input type="radio" name="radioBrand" id="4RadioButton" />
+              Friendship
+            </li>
+          </ul>
+        </div>
+      </div>
+    </>
+  );
+};
+
+
+
+<input type="Submit" value="Submit" />
+
+
+
+<MainHeader />
+     <ProductZone />
+     <Footer />
+
+
+
+     const newProduct = currentProduct.map(currProd => {
+        return{
+        productImage: currProd.productImage,
+        productName: currProd.productName,
+        productReviewCount: currProd.productReviewCount,
+        productPrice: currProd.productPrice,
+        productId: currProd.productId,
+        ProductAvailabilityStatus: currProd.ProductAvailabilityStatus,
+        ProductStockQuantity: currProd.ProductStockQuantity,
+        productDescription: currProd.productDescription
+        ProductReviews:[]
+        }
+      });
+
+
+
+
+      <svg
+        width="314"
+        height="53"
+        viewBox="0 0 314 53"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M159.231 0H313.5V53H131.264L159.231 0Z" fill="#242424" />
+        <path d="M0 0H154.269L125.4 53H0V0Z" fill="#242424" />
+      </svg>'
+
+
+
+
+
+      
+  // const HandleCommentAddition = () => {
+  //   if (commentData.commenterComment !== "" && commentData.commenterRating !== "") {
+  //     const newReview = {
+  //       commenterName: commentData.commenterName,
+  //       commenterRating: commentData.commenterRating,
+  //       commenterComment: commentData.commenterComment,
+  //       commentId: generateUniqueCommentId()
+  //     };
+  
+  //     const updatedProduct = {
+  //       ...currentProduct[0], // Assuming there's only one matching product
+  //       ProductReviews: [...currentProduct[0].ProductReviews, newReview]
+  //     };
+  
+  //     const updatedProducts = Products.map((product) => {
+  //       if (product.productId.toLowerCase() === id.toLowerCase()) {
+  //         return updatedProduct;
+  //       }
+  //       return product;
+  //     });
+  
+  //     setComment([updatedProduct]);
+  //     setCommentData({
+  //       commenterName: "",
+  //       commenterRating: "",
+  //       commenterComment: ""
+  //     });
+  
+  //     setProducts(updatedProducts); // Assuming you have a state variable for Products and a setProducts function to update it
+  
+  //     setCommentStatusVariable(reviewAdditionSuccessful);
+  //     removeStatus();
+  //   } else if (commentData.commenterRating === "") {
+  //     setCommentStatusVariable(reviewAdditionFailedRating);
+  //     removeStatus();
+  //   } else if (commentData.commenterComment === "") {
+  //     setCommentStatusVariable(reviewAdditionFailedComment);
+  //     removeStatus();
+  //   }
+  // };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const [commentData, setCommentData] = useState({
+    commenterName: "Test",
+    commenterRating: "",
+    commenterComment: "",
+    commentId: 93842,
+  });
+  
+  const reviewAdditionSuccessful = (
+    <div className="commentSuccessful">Review Added Successfully</div>
+  );
+  const reviewAdditionFailedComment = (
+    <div className="commentNotSuccessful">Please add a comment</div>
+  );
+  const reviewAdditionFailedRating = (
+    <div className="commentNotSuccessful">Please select a Rating</div>
+  );
+
+  const noReview = <div className="noComment">no reviews</div>;
+
+  const currentProduct = Product.filter(
+    (product) => product.productId.toLowerCase() === id.toLowerCase()
+  );
+
+  const [comment, setComment] = useState(Product);
+
+  const [commentStatusVariable, setCommentStatusVariable] = useState("");
+
+  const reviewObject = comment.map((FullProductInformation) => {
+    return FullProductInformation.productReviews.map((singleComment) => {
+      return (
+        <ProductReviewComment
+          key={singleComment.commentId}
+          commenterNameValue={singleComment.commenterName}
+          commenterRatingValue={singleComment.commenterRating}
+          commenterCommentValue={singleComment.commenterComment}
+        />
+      );
+    });
+  });
+
+  console.log(reviewObject);
+
+  const HandleCommentValue = (event) => {
+    setCommentData((prevCommentData) => {
+      return {
+        ...prevCommentData,
+        [event.target.name]: event.target.value,
+      };
+    });
+  };
+
+  function removeStatus() {
+    setTimeout(() => {
+      setCommentStatusVariable("");
+    }, 2000);
+  }
+
+  const HandleCommentAddition = (event) => {
+    event.preventDefault();
+
+    if (
+      commentData.commenterComment !== "" &&
+      commentData.commenterRating !== ""
+    ) {
+      const newReview = {
+        commenterName: commentData.commenterName,
+        commenterRating: commentData.commenterRating,
+        commenterComment: commentData.commenterComment,
+        commentId: "typi7",
+      };
+
+      const updatedProduct = comment.map((currProd) => {
+        return {
+          ...currProd[0], // Assuming there's only one matching product
+          productReviews: [...currProd.productReviews, newReview],
+        };
+      });
+
+      setComment(updatedProduct);
+
+      setCommentStatusVariable(reviewAdditionSuccessful);
+      removeStatus();
+    } else if (commentData.commenterRating === "") {
+      setCommentStatusVariable(reviewAdditionFailedRating);
+      removeStatus();
+    } else if (commentData.commenterComment === "") {
+      setCommentStatusVariable(reviewAdditionFailedComment);
+      removeStatus();
+    }
+  };
+
+
+
+
+
+
+  // const productInfo = Product.map((product_c) => (
+  //   <>
+  //     <div className="productInformation">
+  //       <div className="info">
+  //         <div className="imageView">
+  //           <img src={product_c.productImage} alt="" />
+  //         </div>
+  //         <div className="information">
+  //           <div className="productViewName">{product_c.productName}</div>
+  //           <div className="FinalPrice">
+  //             <div>{product_c.productPrice}</div>
+  //           </div>
+
+  //           <div className="allProductInformation">
+  //             <div className="productInformationStatus">
+  //               <div className="status value">
+  //                 {product_c.productAvailabilityStatus}{" "}
+  //                 <span id="availabilityStatusIcon">
+  //                   <FontAwesomeIcon icon={faCheckCircle}></FontAwesomeIcon>
+  //                 </span>
+  //               </div>
+  //             </div>
+  //             <div className="productInformationReviews">
+  //               <div className="reviews value">
+  //                 {product_c.productReviewCount}
+  //               </div>
+  //               <div className="starIconContainer">
+  //                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+  //                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+  //                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+  //                 <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
+  //               </div>
+  //             </div>
+  //             <div className="shippingInformation">
+  //               ships in 3-5 days <FontAwesomeIcon icon={faCab} id="cabIcon" />
+  //             </div>
+  //           </div>
+
+  //           <div className="ProductViewActions">
+  //             <div>
+  //               <button className="AddToCartButton">
+  //                 Add to cart{" "}
+  //                 <FontAwesomeIcon icon={faCartShopping}></FontAwesomeIcon>
+  //               </button>
+  //             </div>
+  //             <div>
+  //               <button className="AddToFavoritesButton">
+  //                 Add to Favorites{" "}
+  //                 <FontAwesomeIcon icon={faHeart}></FontAwesomeIcon>
+  //               </button>
+  //             </div>
+  //           </div>
+  //         </div>
+
+  //         {/* <div className="productViewDescription">
+  //         {product_c.productDescription}
+  //       </div> */}
+  //       </div>
+  //     </div>
+  //   </>
+  // ));
