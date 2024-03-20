@@ -24,7 +24,18 @@ const Cart = () => {
     0
   );
 
-  const noItemsInCart = <div className="noItemsInCart">No Items In Cart <button onClick={() => {navigate("/")}}>Shop Now</button></div>;
+  const noItemsInCart = (
+    <div className="noItemsInCart">
+      No Items In Cart{" "}
+      <button
+        onClick={() => {
+          navigate("/");
+        }}
+      >
+        Shop Now
+      </button>
+    </div>
+  );
 
   useEffect(() => {
     if (id) {
@@ -36,9 +47,9 @@ const Cart = () => {
     navigate(`/product/${id}`);
   };
 
-  const HandleProductRemoval = (id) =>{
-    dispatch(removeCartProducts(id))
-  }
+  const HandleProductRemoval = (id) => {
+    dispatch(removeCartProducts(id));
+  };
 
   const cartObjectElement = cartItems.map((object) => {
     return (
@@ -81,7 +92,10 @@ const Cart = () => {
             </select>
           </div>
         </div>
-        <div className="cartActionButtons" onClick={() => HandleProductRemoval(object.product)}>
+        <div
+          className="cartActionButtons"
+          onClick={() => HandleProductRemoval(object.product)}
+        >
           <FontAwesomeIcon icon={faCircleXmark} />
         </div>
       </div>
@@ -102,7 +116,7 @@ const Cart = () => {
               <div>Cart Summary</div>
             </div>
             <div className="totalPrice">
-              Total:({cartItems.length} items) = {" "}
+              Total:({cartItems.length} items) ={" "}
               <div> R {TotalPrice.toLocaleString()}</div>
             </div>
             <div className="checkoutButton">

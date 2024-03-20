@@ -8,6 +8,7 @@ import connectDatabase from './Config/MongoDb.js';
 import ImportData from './DataImport.js';
 import productRoute from './Routes/ProductRoutes.js';
 import userRoute from './Routes/userRoutes.js';
+import cloudinary from "cloudinary"
 
 const app = express();
 
@@ -15,6 +16,19 @@ dotenv.config();
 connectDatabase();
 app.use(express.json())
 app.use(cors());
+
+//cloudinary setup
+
+cloudinary.v2.config({
+  cloud_name: 'dbtpr07zv',
+  api_key: '537347397591417',
+  api_secret: 'P4W3auaGEh3sZaE4VWjqpz5WiMk',
+  secure: true,
+});
+
+// cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
+//   { public_id: "olympic_flag" }, 
+//   function(error, result) {console.log(result); });
 
 // API 
 app.use("/api/import", ImportData)
