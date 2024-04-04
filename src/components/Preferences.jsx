@@ -22,7 +22,7 @@ const ProductZone = () => {
     dispatch(productList());
   }, [dispatch]);
 
-  console.log(products)
+  console.log(products)// this will log the products from the server and not from the local file data
 
   const loadSkeleton = products.map((PM) => {
     return (
@@ -99,6 +99,13 @@ const ProductZone = () => {
             : loading
             ? loadSkeleton
             : ProductModel_M}
+
+            {/* This part of the code will check for if there is an error in the server information 
+              --> if the code does not contain an error then it should check for if the information is loading 
+              --.> if the information is loading then the program should then proceed to display the loading skeleton for as long as the information is loading and as long as the object returns true
+              --> after the loading is done, what should happen is that the data should then be displayed in the appropriate areas
+              
+            */}
         </div>
       </div>
     </>

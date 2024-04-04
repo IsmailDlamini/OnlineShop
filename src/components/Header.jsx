@@ -32,7 +32,7 @@ const MainArea = () => {
           onChange={HandleSearchBarValue}
           value={searchTerm}
         />
-        <button onClick={HandleSearch}>Search</button>
+        <button onClick={() => {HandleSearch()}}>Search</button>
       </div>
     </div>
   );
