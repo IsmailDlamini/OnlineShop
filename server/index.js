@@ -26,10 +26,6 @@ cloudinary.v2.config({
   secure: true,
 });
 
-// cloudinary.v2.uploader.upload("https://upload.wikimedia.org/wikipedia/commons/a/ae/Olympic_flag.jpg",
-//   { public_id: "olympic_flag" }, 
-//   function(error, result) {console.log(result); });
-
 // API 
 app.use("/api/import", ImportData)
 app.use("/api/products", productRoute)
@@ -41,6 +37,6 @@ app.get("/", (req, res) => {
     res.send("the api is running good");
 });
 
-const PORT = process.env.PORT || 1000;
+const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, console.log(`running in port ${PORT}....`));
