@@ -16,7 +16,7 @@ const Search = () => {
     useEffect( () => {
         const fetchProducts = async () => {
         try {
-            const {data} = await axios.get("http://localhost:5000/api/products");
+            const {data} = await axios.get("/api/products");
             setProduct(data);
             setIsLoading(false)
         } catch (error) {
