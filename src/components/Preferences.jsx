@@ -5,7 +5,7 @@ import LoadSkeleton from "./LoadSkeleton";
 import { useDispatch, useSelector } from "react-redux";
 import productList from "../Redux/Actions/productActions";
 import Products from "../Data/Products";
-import Banner from "../assets/Banner.png"
+import Banner from "../assets/banner.png"
 import promo from "../assets/Drip.png"
 import promo2 from "../assets/Promo2.png"
 
