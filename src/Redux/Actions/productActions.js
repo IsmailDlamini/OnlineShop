@@ -11,7 +11,7 @@ import {
 export const productList = () => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_LIST_REQUEST });
-    const { data } = await axios.get("/api/products");
+    const { data } = await axios.get("https://online-shop-xi-jet.vercel.app/api/products/");
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
       payload: data,
@@ -27,7 +27,7 @@ export const productList = () => async (dispatch) => {
 export const productDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST });
-    const { data } = await axios.get(`/api/products/${id}`);
+    const { data } = await axios.get(`https://online-shop-xi-jet.vercel.app/api/products/${id}`);
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
       payload: data,
